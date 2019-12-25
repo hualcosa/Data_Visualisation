@@ -1,0 +1,66 @@
+We can specify a different color for a line by using the keyword color with either an HTML color name or a HEX code:
+
+plt.plot(days, money_spent, color='green')
+plt.plot(days, money_spent_2, color='#AAAAAA')
+money_colors
+
+We can also make a line dotted or dashed using the keyword linestyle.
+
+# Dashed:
+plt.plot(x_values, y_values, linestyle='--')
+# Dotted:
+plt.plot(x_values, y_values, linestyle=':')
+# No line:
+plt.plot(x_values, y_values, linestyle='')
+We can also add a marker using the keyword marker:
+
+# A circle:
+plt.plot(x_values, y_values, marker='o')
+# A square:
+plt.plot(x_values, y_values, marker='s')
+# A star:
+plt.plot(x_values, y_values, marker='*')
+To see all of the possible options, check out the Matplotlib documentation. Here are a couple of those values applied to our plots about lunch spending:
+
+plt.plot(days, money_spent, color='green', linestyle='--')
+plt.plot(days, money_spent_2, color='#AAAAAA',  marker='o')
+linestyles
+
+Let’s get some practice with customizing lines on the same plot.
+
+Subplots Part II
+Sometimes, when we’re putting multiple subplots together, some elements can overlap and make the figure unreadable:
+
+overlapping
+
+We can customize the spacing between our subplots to make sure that the figure we create is visible and easy to understand. To do this, we use the plt.subplots_adjust() command. .subplots_adjust() has some keyword arguments that can move your plots within the figure:
+
+left — the left-side margin, with a default of 0.125. You can increase this number to make room for a y-axis label
+right — the right-side margin, with a default of 0.9. You can increase this to make more room for the figure, or decrease it to make room for a legend
+bottom — the bottom margin, with a default of 0.1. You can increase this to make room for tick mark labels or an x-axis label
+top — the top margin, with a default of 0.9
+wspace — the horizontal space between adjacent subplots, with a default of 0.2
+hspace — the vertical space between adjacent subplots, with a default of 0.2
+For example, if we were adding space to the bottom of a graph by changing the bottom margin to 0.2 (instead of the default of 0.1), we would use the command:
+
+plt.subplots_adjust(bottom=0.2)
+We can also use multiple keyword arguments, if we need to adjust multiple margins. For instance, we could adjust both the top and the hspace:
+
+plt.subplots_adjust(top=0.95, hspace=0.25)
+Let’s use wspace to fix the figure above:
+
+# Left Plot
+plt.subplot(1, 2, 1)
+plt.plot([-2, -1, 0, 1, 2], [4, 1, 0, 1, 4])
+
+# Right Plot
+plt.subplot(1, 2, 2)
+plt.plot([-2, -1, 0, 1, 2], [4, 1, 0, 1, 4])
+
+# Subplot Adjust
+plt.subplots_adjust(wspace=0.35)
+
+plt.show()
+This would give us figure with a better layout:
+
+fixed
